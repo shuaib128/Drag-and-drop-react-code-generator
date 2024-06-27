@@ -1,0 +1,28 @@
+<!-- components/LiveCodeView/main.html -->
+<div class="text-left border shadow-lg" style="border-radius: 5px">
+  <div id="jsx-code-viewer"></div>
+</div>
+
+<script>
+  function renderJsxCode(code) {
+    const codeViewer = document.getElementById("jsx-code-viewer");
+    codeViewer.innerHTML = `<pre><code class="language-jsx">${Prism.highlight(
+      code,
+      Prism.languages.jsx,
+      "jsx"
+    )}</code></pre>`;
+  }
+
+  // Example JSX code
+  const jsxCode = `
+  import React from 'react';
+
+  const HelloWorld = () => {
+    return <div>Hello, World!</div>;
+  };
+
+  export default HelloWorld;
+  `;
+
+  renderJsxCode(jsxCode);
+</script>
